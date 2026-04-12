@@ -4,13 +4,12 @@
 
   <!-- Параметры проекта -->
   <groupId>namespace.stedd</groupId>
-  <artifactId>library</artifactId>   <!-- TODO: Менять! -->
+  <artifactId>community</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
-  <name>library</name>   <!-- TODO: Менять! -->
-  <description>Библиотека</description>   <!-- TODO: Менять! -->
-  <url>https://github.com/namespaceStedd/template</url>   <!-- TODO: Менять! -->
-  <!-- <url>http://maven.apache.org</url> -->
+  <name>oznamovani</name>
+  <description>Библиотека по управлению коммуникацией</description>
+  <url>https://github.com/namespaceStedd/oznamovani</url>
 
   <!-- Лицензия -->
   <licenses>
@@ -23,9 +22,9 @@
   <!-- Публикация -->
   <distributionManagement>
     <repository>
-      <id>template</id>   <!-- TODO: Менять! -->
+      <id>oznamovani</id>
       <name>namespaceStedd</name>
-      <url>https://maven.pkg.github.com/namespacestedd/template</url>   <!-- TODO: Менять! -->
+      <url>https://maven.pkg.github.com/namespacestedd/oznamovani</url>
     </repository>
   </distributionManagement>
 
@@ -59,11 +58,30 @@
 
   <!-- Зависимости проекта -->
   <dependencies>
+    <!-- Главная Библиотека -->
+    <dependency>
+      <groupId>namespace.stedd</groupId>
+      <artifactId>data</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!-- Тесты -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
+    </dependency>
+    <!-- Rabbit Tech -->
+    <dependency>
+      <groupId>com.rabbitmq</groupId>
+      <artifactId>amqp-client</artifactId>
+      <version>5.21.0</version>
+    </dependency>
+    <!-- Маршрутизация -->
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-tracing</artifactId>
+      <version>1.6.4</version>
     </dependency>
   </dependencies>
 
@@ -77,8 +95,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.1</version>
           <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
+            <source>21</source>
+            <target>21</target>
           </configuration>
         </plugin>
       </plugins>
