@@ -1,7 +1,11 @@
 package namespace.stedd.messaging.http;
 
+import namespace.stedd.data.Converter;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Структура параметров HTTP-запроса.
@@ -155,6 +159,41 @@ public class HttpParameter {
             return withLink + this.build();
         }
 
+    }
+
+    /**
+     * Преобразование строки HTTP-параметров в массив параметров HTTP-запроса.
+     * @author Namespace Stedd
+     * @param httpParametersString строка HTTP-параметров
+     * @return массив параметров HTTP-запроса
+     */
+    public static HttpParameter[] fromHttpParametersString(String httpParametersString) {
+        String[] keyPairs = httpParametersString.split("&");
+        List<HttpParameter> httpParameters = new ArrayList<>();
+        // TODO: HP.getValue(T)
+        for (String pair : keyPairs) {
+            String[] keyPair = pair.split("=");
+            if (keyPair.length > 0) {
+                String key = keyPair[0];
+                String value = keyPair.length > 1 ? keyPair[1] : null;
+                httpParameters.add(HttpParameter.create(key, value));
+            }
+        }
+        return Converter.toArray(httpParameters, HttpParameter.class);
+    }
+
+    /**
+     * Преобразование массива параметров HTTP-запроса в карту.
+     * @author Namespace Stedd
+     * @param httpParameters массив параметров HTTP-запроса
+     * @return карта параметров HTTP-запроса
+     */
+    public static Map<String, Object> toMap(HttpParameter... httpParameters) {
+        Map<String, Object> httpParametersMap = new HashMap<>();
+        for (HttpParameter httpParameter : httpParameters) {
+            httpParametersMap.put(httpParameter.getKey(), httpParameter.getValue());
+        }
+        return httpParametersMap;
     }
 
 }

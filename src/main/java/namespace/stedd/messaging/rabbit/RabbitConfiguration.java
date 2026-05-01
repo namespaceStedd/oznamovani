@@ -1,7 +1,7 @@
 package namespace.stedd.messaging.rabbit;
 
 import com.rabbitmq.client.*;
-import namespace.stedd.data.console.OutputSystem;
+import namespace.stedd.data.cincout.OutputSystem;
 import namespace.stedd.data.type.ExoString;
 
 import java.nio.charset.StandardCharsets;

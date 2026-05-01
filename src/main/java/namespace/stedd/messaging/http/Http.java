@@ -1,6 +1,6 @@
 package namespace.stedd.messaging.http;
 
-import namespace.stedd.data.console.OutputSystem;
+import namespace.stedd.data.cincout.OutputSystem;
 import namespace.stedd.data.crypto.CryptoProtocol;
 import namespace.stedd.data.crypto.MockTrustManager;
 import namespace.stedd.data.crypto.SecureKeyType;
