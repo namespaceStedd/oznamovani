@@ -1,6 +1,7 @@
 package namespace.stedd.messaging.http;
 
 import namespace.stedd.data.Converter;
+import namespace.stedd.data.type.KeyPair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,13 +10,9 @@ import java.util.Map;
 
 /**
  * Структура параметров HTTP-запроса.
- * // TODO: Unif Impl
  * @author Namespace Stedd
  */
-public class HttpParameter {
-
-    private String key;   // Ключ параметра
-    private Object value;   // Объект-значение параметра
+public class HttpParameter extends KeyPair {
 
     /**
      * Создание структуры параметров HTTP-запроса.
@@ -24,8 +21,7 @@ public class HttpParameter {
      * @param value объект-значение параметра
      */
     public HttpParameter(String key, Object value) {
-        this.key = key;
-        this.value = value;
+        super(key, value);
     }
 
     /**
@@ -33,45 +29,10 @@ public class HttpParameter {
      * @author Namespace Stedd
      * @param key ключ параметра
      * @param value объект-значение параметра
+     * @return структура параметров HTTP-запроса
      */
     public static HttpParameter create(String key, Object value) {
         return new HttpParameter(key, value);
-    }
-
-    /**
-     * Получение ключа параметра.
-     * @author Namespace Stedd
-     * @return ключ параметра
-     */
-    public String getKey() {
-        return this.key;
-    }
-
-    /**
-     * Обновление ключа параметра.
-     * @author Namespace Stedd
-     * @return ключ параметра
-     */
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    /**
-     * Получение объект-значения параметра.
-     * @author Namespace Stedd
-     * @return объект-значение параметра
-     */
-    public Object getValue() {
-        return this.value;
-    }
-
-    /**
-     * Обновление объект-значения параметра.
-     * @author Namespace Stedd
-     * @return объект-значение параметра
-     */
-    public void setValue(Object value) {
-        this.value = value;
     }
 
     /**
